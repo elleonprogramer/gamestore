@@ -1,157 +1,124 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Game Store</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-
-  <header>
-
+<header>
     <div class="logo">Game Store</div>
-
     <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Estrenos</a>
-      <a href="#">Top Juegos</a>
-      <a href="#">Contacto</a>
+        <a href="#">Inicio</a>
+        <a href="#">Estrenos</a>
+        <a href="#">Top Juegos</a>
+        <a href="#">Contacto</a>
+        <button id="cart-button" class="cart-btn">🛒 <span id="cart-count">0</span></button>
     </nav>
-
-  </header>
-
-  <section class="nav">
-
+</header>
+<section class="nav">
     <div class="nav-text">
-      <h1>Bienvenido a Game Store</h1>
-
-      <p>
-        Descubre los videojuegos más emocionantes y sumérgete en nuevas aventuras.
-         Desde los clásicos hasta los lanzamientos más recientes, 
-         tenemos todo lo que necesitas para tu próxima sesión de juego.
-      </p>
-
-      <div class="nav-buttons">
-        <a href="#" class="btn btn-primary">Ver Estrenos</a>
-        <a href="#" class="btn btn-secondary">Explorar</a>
-      </div>
-
+        <h1>Bienvenido a Game Store</h1>
+        <p>Descubre los videojuegos más emocionantes y sumérgete en nuevas aventuras. Desde los clásicos hasta los lanzamientos más recientes.</p>
+        <div class="nav-buttons">
+            <a href="#" class="btn btn-primary">Ver Estrenos</a>
+            <a href="#" class="btn btn-secondary">Explorar</a>
+        </div>
     </div>
-
     <div class="nav-image">
-      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80">
+        <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=900&q=80" alt="Juego">
     </div>
-
-  </section>
-
-  <section class="games">
-
+</section>
+<section class="games">
     <div class="section-title">
-      <h2>Estrenos Destacados</h2>
-      <p>Los juegos más esperados y populares del momento.</p>
+        <h2>Estrenos Destacados</h2>
+        <p>Los juegos más esperados del momento.</p>
     </div>
-
-    <div class="cards">
-
-      <div class="card">
-
-        <div class="card-image">
-          <img src="residen.jpg">
-        </div>
-
-        <div class="card-content">
-
-          <span class="tag">Terror</span>
-
-          <h3>Resident Evil Requiem</h3>
-
-          <p>
-            Un nuevo capítulo de terror y supervivencia donde los jugadores
-            exploran escenarios oscuros llenos de criaturas aterradoras,
-            misterios y acción intensa en una experiencia cinematográfica.
-          </p>
-
-          <button>Comprar</button>
-
-        </div>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-image">
-          <img src="mario.jpg">
-        </div>
-
-        <div class="card-content">
-
-          <span class="tag">Deportes</span>
-
-          <h3>Mario Tennis: Fever</h3>
-
-          <p>
-            Una aventura deportiva llena de energía donde Mario y sus amigos
-            compiten en partidos rápidos y coloridos con movimientos especiales,
-            canchas dinámicas y un estilo arcade divertido para jugar solo o con amigos.
-          </p>
-
-          <button>Comprar</button>
-
-        </div>
-
-      </div>
-
-      <div class="card">
-
-        <div class="card-image">
-          <img src="mause.jpg">
-        </div>
-
-        <div class="card-content">
-
-          <span class="tag">Noir</span>
-
-          <h3>Mouse: P.I. For Hire</h3>
-
-          <p>
-            Un juego estilo noir inspirado en caricaturas clásicas de los años 30.
-            Tomas el papel de un detective ratón que investiga crímenes mientras
-            enfrenta enemigos con acción frenética, humor y estética retro en blanco y negro.
-          </p>
-
-          <button>Comprar</button>
-
-        </div>
-
-      </div>
-
-    </div>
-
+    <div id="product-grid" class="cards"></div>
     <div class="extra">
-
-      <div class="side">
-
-        <h3>Top Juegos</h3>
-
-        <ul>
-          <li>Call of Duty</li>
-          <li>Silksong</li>
-          <li>Minecraft</li>
-          <li>FIFA 25</li>
-        </ul>
-
-      </div>
-
+        <div class="side">
+            <h3>Top Juegos</h3>
+            <ul>
+                <li>Call of Duty</li>
+                <li>Silksong</li>
+                <li>Minecraft</li>
+                <li>FIFA 25</li>
+            </ul>
+        </div>
     </div>
-
-  </section>
-
-  <footer>
-    <p>Game Store 2026</p>
-  </footer>
-
+</section>
+<div id="cart-modal" class="modal-custom">
+    <div class="modal-box">
+        <button id="close-cart" class="close-btn">✖</button>
+        <h2>Mi Carrito</h2>
+        <div id="cart-items"></div>
+        <h3>Total: <span id="cart-total">$0</span></h3>
+        <button id="checkout-button" class="btn btn-success">Proceder al pago</button>
+    </div>
+</div>
+<div id="checkout-modal" class="modal-custom">
+    <div class="modal-box checkout-box">
+        <button id="close-checkout" class="close-btn">✖</button>
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+        <p id="progress-text">Paso 1 de 4</p>
+        <section id="paso1" class="step">
+            <h2>Resumen de compra</h2>
+            <div id="review-cart-items"></div>
+            <h3>Total: <span id="review-total">$0</span></h3>
+            <button class="btn btn-primary" id="next1">Siguiente</button>
+        </section>
+        <section id="paso2" class="step">
+            <h2>Datos del cliente</h2>
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" class="form-control">
+            <br>
+            <label for="correo">Correo electrónico</label>
+            <input type="email" id="correo" class="form-control">
+            <br>
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" class="form-control">
+            <br>
+            <button class="btn btn-secondary" id="back2">Atrás</button>
+            <button class="btn btn-primary" id="next2">Siguiente</button>
+        </section>
+        <section id="paso3" class="step">
+            <h2>Método de pago</h2>
+            <input type="radio" name="pago" id="tarjeta" checked> Tarjeta de crédito/débito<br><br>
+            <input type="radio" name="pago" id="cheques"> Cuenta de cheques<br><br>
+            <div id="campos-tarjeta">
+                <input type="text" id="numero-tarjeta" class="form-control" placeholder="Número de tarjeta">
+                <br>
+                <input type="text" id="fecha" class="form-control" placeholder="MM/AA">
+                <br>
+                <input type="text" id="cvv" class="form-control" placeholder="CVV">
+            </div>
+            <br>
+            <button class="btn btn-secondary" id="back3">Atrás</button>
+            <button class="btn btn-primary" id="next3">Siguiente</button>
+        </section>
+        <section id="paso4" class="step">
+            <h2>Confirmación</h2>
+            <div id="final-items"></div>
+            <p id="final-name"></p>
+            <p id="final-email"></p>
+            <p id="final-address"></p>
+            <p id="final-method"></p>
+            <h3>Total: <span id="final-total"></span></h3>
+            <button class="btn btn-secondary" id="back4">Atrás</button>
+            <button id="confirm-button" class="btn btn-success">Confirmar transferencia</button>
+        </section>
+        <div id="success-message">✅ Compra realizada correctamente. ¡Gracias por tu compra!</div>
+    </div>
+</div>
+<footer>
+    <p>Game Store © 2026</p>
+    <p>Facebook | Instagram</p>
+</footer>
+<script src="script.js"></script>
+<script src="animacion.js"></script>
 </body>
 </html>
