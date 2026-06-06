@@ -3,7 +3,7 @@ const productos = [
   { id: 1, nombre: "Resident Evil Requiem", precio: 1299, categoria: "Terror", imagen: "residen.jpg" },
   { id: 2, nombre: "Mario Tennis Fever", precio: 799, categoria: "Deportes", imagen: "mario.jpg" },
   { id: 3, nombre: "Mouse: P.I. For Hire", precio: 649, categoria: "Noir", imagen: "mause.jpg" },
-  { id: 4, nombre: "Cyber Runner 2077", precio: 999, categoria: "Acción", imagen: "https://picsum.photos/500/300?1" },
+  { id: 4, nombre: "forza horizont 6", precio: 999, categoria: "carreras", imagen: "forza.avif" },
   { id: 5, nombre: "Sky Racers Ultimate", precio: 899, categoria: "Carreras", imagen: "https://picsum.photos/500/300?2" },
   { id: 6, nombre: "Mystic Quest Legends", precio: 1099, categoria: "Aventura", imagen: "https://picsum.photos/500/300?3" }
 ];
