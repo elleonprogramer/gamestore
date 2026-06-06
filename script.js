@@ -4,8 +4,8 @@ const productos = [
   { id: 2, nombre: "Mario Tennis Fever", precio: 799, categoria: "Deportes", imagen: "mario.jpg" },
   { id: 3, nombre: "Mouse: P.I. For Hire", precio: 649, categoria: "Noir", imagen: "mause.jpg" },
   { id: 4, nombre: "forza horizont 6", precio: 999, categoria: "carreras", imagen: "forza.avif" },
-  { id: 5, nombre: "Sky Racers Ultimate", precio: 899, categoria: "Carreras", imagen: "https://picsum.photos/500/300?2" },
-  { id: 6, nombre: "Mystic Quest Legends", precio: 1099, categoria: "Aventura", imagen: "https://picsum.photos/500/300?3" }
+  { id: 5, nombre: "GTA6", precio: 2500, categoria: "accion y aventura", imagen: "gta6.avif" },
+  { id: 6, nombre: "lego batman", precio: 1099, categoria: "Aventura", imagen: "lego_batman.jpg" }
 ];
 
 let carrito = [];
