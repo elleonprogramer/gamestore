@@ -1,7 +1,4 @@
-// =========================
-// PRODUCTOS
-// =========================
-
+//declarando los productos disponibles en la tienda
 const productos = [
   { id: 1, nombre: "Resident Evil Requiem", precio: 1299, categoria: "Terror", imagen: "residen.jpg" },
   { id: 2, nombre: "Mario Tennis Fever", precio: 799, categoria: "Deportes", imagen: "mario.jpg" },
@@ -13,7 +10,7 @@ const productos = [
 
 let carrito = [];
 let paso = 1;
-
+//mostrar los productos en la página
 function mostrarProductos() {
   let html = "";
   for (let i = 0; i < productos.length; i++) {
@@ -33,7 +30,7 @@ function mostrarProductos() {
   }
   document.getElementById("product-grid").innerHTML = html;
 }
-
+//agregar los productos al carrito y berificar y ahy un producto en el carrito y pus ponerlo en el carrito o si ya esta aumentar la cantidad del producto en el carrito
 function agregarAlCarrito(id) {
   let encontrado = false;
   for (let i = 0; i < carrito.length; i++) {
@@ -56,7 +53,7 @@ function agregarAlCarrito(id) {
   }
   actualizarCarrito();
 }
-
+//eliminacion de producto
 function eliminarProducto(id) {
   for (let i = 0; i < carrito.length; i++) {
     if (carrito[i].id == id) {
@@ -65,7 +62,7 @@ function eliminarProducto(id) {
   }
   actualizarCarrito();
 }
-
+//los calculos
 function calcularTotal() {
   let total = 0;
   for (let i = 0; i < carrito.length; i++) {
@@ -73,7 +70,7 @@ function calcularTotal() {
   }
   return total;
 }
-
+//actualizar el carrito y mostrar los productos en el carrito y el total
 function actualizarCarrito() {
   let contador = 0;
   for (let i = 0; i < carrito.length; i++) {
@@ -95,7 +92,7 @@ function actualizarCarrito() {
   document.getElementById("cart-items").innerHTML = html;
   document.getElementById("cart-total").innerHTML = "$" + calcularTotal();
 }
-
+//funciones para mostrar el modal del carrito y el modal de chequeo y para mostrar los pasos del verificacion del chequeo y para actualizar la barra de progreso del chequeo y para mostrar el resumen final del chequeo y para confirmar la compra
 const cartButton = document.getElementById("cart-button");
 const cartModal = document.getElementById("cart-modal");
 const closeCart = document.getElementById("close-cart");
@@ -135,7 +132,7 @@ function mostrarPaso(numero) {
   paso = numero;
   actualizarBarra();
 }
-
+//actualizar la barra de progreso del chequeo
 function actualizarBarra() {
   let porcentaje = 0;
   if (paso == 1) porcentaje = 25;
@@ -145,16 +142,16 @@ function actualizarBarra() {
   document.getElementById("progress-bar").style.width = porcentaje + "%";
   document.getElementById("progress-text").innerHTML = "Paso " + paso + " de 4";
 }
-
+//eventos para los botones de siguiente y anterior en el proceso de chequeo
 document.getElementById("next1").addEventListener("click", function() {
   document.getElementById("review-total").innerHTML = "$" + calcularTotal();
   mostrarPaso(2);
 });
-
+//validaciones para el paso 2 del chequeo
 document.getElementById("back2").addEventListener("click", function() {
   mostrarPaso(1);
 });
-
+//validaciones para el paso 2 del chequeo y para mostrar el paso 3 del chequeo
 document.getElementById("next2").addEventListener("click", function() {
   let nombre = document.getElementById("nombre").value;
   let correo = document.getElementById("correo").value;
@@ -186,14 +183,14 @@ document.getElementById("next3").addEventListener("click", function() {
 document.getElementById("back4").addEventListener("click", function() {
   mostrarPaso(3);
 });
-
+//funcion para mostrar el resumen final del chequeo
 function actualizarResumenFinal() {
   document.getElementById("final-name").innerHTML = "Nombre: " + document.getElementById("nombre").value;
   document.getElementById("final-email").innerHTML = "Correo: " + document.getElementById("correo").value;
   document.getElementById("final-address").innerHTML = "Dirección: " + document.getElementById("direccion").value;
   document.getElementById("final-total").innerHTML = "$" + calcularTotal();
 }
-
+//funcion para confirmar la compra y mostrar un mensaje de éxito y limpiar el carrito y actualizar el carrito y cerrar el modal de chequeo y limpiar los campos del formulario y mostrar el paso 1 del chequeo
 document.getElementById("confirm-button").addEventListener("click", function() {
   alert("Compra realizada con éxito");
   carrito = [];
@@ -204,7 +201,7 @@ document.getElementById("confirm-button").addEventListener("click", function() {
   document.getElementById("direccion").value = "";
   mostrarPaso(1);
 });
-
+//que todo inicialize mostrando los producto, la actualizacion del carro y los pasos de compra
 mostrarProductos();
 actualizarCarrito();
 mostrarPaso(1);
