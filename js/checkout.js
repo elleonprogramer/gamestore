@@ -83,8 +83,9 @@ if (next2) {
       alert("Nombre inválido");
       return;
     }
-    if (correo.indexOf("@") == -1) {
-      alert("Correo inválido");
+    // Validar correo: debe contener @ y terminar en .com (o tener .com en alguna parte)
+    if (correo.indexOf("@") == -1 || correo.toLowerCase().indexOf(".com") == -1) {
+      alert("Correo inválido (debe contener @ y .com)");
       return;
     }
     if (direccion == "") {
